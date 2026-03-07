@@ -1,0 +1,19 @@
+[package]
+name = "winux_desktop"
+version = "0.1.0"
+edition = "2021"
+license = "BSD-3-Clause"
+authors = ["Your Name <you@example.com>"]
+description = "Modular Wayland desktop environment similar to Winux."
+build = "build.rs"
+
+# include icons directory in crate when packaging
+include = ["src/**", "assets/icons/**", "scripts/**"]
+
+[dependencies]
+slint = { version = "^1", features = ["renderer-winit"] }
+# smithay is an MIT-licensed compositor toolkit for Wayland in Rust
+smithay = "^0.6"
+
+[features]
+default = []
