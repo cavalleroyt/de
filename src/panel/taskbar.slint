@@ -1,0 +1,48 @@
+export component Taskbar {
+    // path where icons live, injected from Rust process
+    property<string> icon_path: "";
+
+    // simple horizontal bar with a start button and title
+    width: parent.width;
+    height: 40px;
+    background: #2b2b2b;
+
+    HorizontalLayout {
+        anchors.fill: parent;
+        spacing: 4px;
+        PushButton {
+            id: start_button;
+            width: 50px;
+            background: transparent;
+            content: Image {
+                source: root.icon_path + "/start.svg";
+                fill-mode: preserve-aspect-fit;
+            }
+            clicked => {
+                // placeholder for opening start menu
+            }
+        }
+
+        Text {
+            text: "Winux";
+            vertical-alignment: center;
+            color: #ffffff;
+        }
+
+        // spacer to push items to edges
+        Rectangle {
+            width: 1px;
+            height: parent.height;
+            Layout.fill_height: true;
+            Layout.fill_width: true;
+            opacity: 0;
+        }
+
+        // system tray placeholder
+        Rectangle {
+            width: 150px;
+            height: parent.height;
+            color: #333;
+        }
+    }
+}
