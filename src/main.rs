@@ -15,6 +15,5 @@ fn main() {
     // create the taskbar window; in the future we may set it to a Wayland surface
     let taskbar = Taskbar::new();
     taskbar.set_icon_path(asset_dir);
-    taskbar.set_width(800); // placeholder width; real compositor will resize
     taskbar.run();
 }
